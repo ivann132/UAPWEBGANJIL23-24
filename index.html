@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,
+        tr,
+        td,
+        th {
+            border: 1px black solid;
+        }
+
+        .edit {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <table class="edit">
+        <tr>
+            <th>Kode</th>
+            <th>Nama Barang</th>
+            <th>Harga</th>
+        </tr>
+        <tr>
+            <td>001</td>
+            <td>Barang A</td>
+            <td id="001">10000</td>
+        </tr>
+        <tr>
+            <td>002</td>
+            <td>Barang B</td>
+            <td id="002">20000</td>
+        </tr>
+        <tr>
+            <td>003</td>
+            <td>Barang C</td>
+            <td id="003">30000</td>
+        </tr>
+    </table>
+    <br>
+    <table>
+        <tr>
+            <td>Masukan Kode</td>
+            <td>:</td>
+            <td><input id="kode_input" name="kode_input" required></td>
+        </tr>
+        <tr>
+            <td>Banyaknya Barang</td>
+            <td>:</td>
+            <td><input id="jml_barang" name="jml_barang" required></td>
+        </tr>
+        <tr>
+            <td colspan="3"><button onclick="hitung()">Submit</button></td>
+        </tr>
+    </table>
+
+    <script>
+
+        function hitung() {
+            var kode_barang = document.getElementById('kode_input').value
+            var jml = document.getElementById('jml_barang').value
+            var Harga = document.getElementById(kode_barang).innerText
+            total = jml * Harga
+            alert("Total pembayaran adalah " + total)
+            kembalian()
+        }
+
+        function kembalian() {
+            uang = prompt("Masukkan uang anda:")
+            if (uang < total) {
+                alert('uang anda tidak cukup')
+            } else {
+                kembali = uang - total
+                alert("total kembalian anda adalah " + kembali)
+            }
+        }
+
+    </script>
+</body>
+
+</html>
